@@ -1,11 +1,428 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <title>Taxi Boeken Antwerpen</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taxi Boeken Antwerpen — Comfort & Executive taxi, luchthavenvervoer</title>
+<meta name="description" content="Boek direct online je taxi in Antwerpen. Vaste prijzen naar Zaventem, Charleroi, Schiphol en Brussel-Zuid. Betaal online of cash. Comfort (Toyota) of Executive (BMW).">
+
+<!-- Fonts: Fraunces (kenmerkend serif voor de titels), Inter (body), IBM Plex Mono (taximeter-cijfers) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 950: '#050B16', 900: '#0A1830', 800: '#122544', 700: '#1B335C' },
+          gold: { 300: '#E4C766', 500: '#C9A227', 600: '#A9841C' },
+          silver: { 300: '#D6DCE4', 400: '#AEB8C4' },
+          ivory: { 50: '#F6F5F1' },
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'serif'],
+          body: ['"Inter"', 'sans-serif'],
+          meter: ['"IBM Plex Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <h1>Welkom bij Taxi Boeken Antwerpen!</h1>
-    <p>De website werkt.</p>
+<body class="bg-navy-950 text-ivory-50 font-body antialiased">
+
+<!-- ============================= NAVBAR ============================= -->
+<header class="fixed top-0 inset-x-0 z-50 bg-navy-950/85 backdrop-blur border-b border-gold-500/15">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 shrink-0">
+      <span class="font-display text-xl tracking-tight text-ivory-50">Taxi<span class="text-gold-500">Antwerpen</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm text-silver-300">
+      <a href="#bereken" class="hover:text-gold-300 transition-colors">Rit berekenen</a>
+      <a href="#voertuigen" class="hover:text-gold-300 transition-colors">Voertuigen</a>
+      <a href="#tarieven" class="hover:text-gold-300 transition-colors">Vaste tarieven</a>
+      <a href="#faq" class="hover:text-gold-300 transition-colors">Veelgestelde vragen</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="tel:+32488908897" class="hidden sm:inline text-sm text-silver-300 hover:text-gold-300">+32 488 90 88 97</a>
+      <a id="nav-whatsapp" href="#" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 rounded-full bg-gold-500 hover:bg-gold-300 text-navy-950 text-sm font-semibold px-4 py-2 transition-colors">
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= HERO ============================= -->
+<section class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+  <!-- Antwerpse kathedraaltoren als gouden lijntekening, het herkenningspunt van de stad -->
+  <svg class="pointer-events-none select-none absolute right-[-6%] top-10 h-[560px] w-auto opacity-[0.16] md:opacity-25" viewBox="0 0 260 640" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M130 10 L130 630" stroke="#C9A227" stroke-width="1"/>
+    <path d="M100 630 L100 300 C100 260 115 230 130 210 C145 230 160 260 160 300 L160 630" stroke="#C9A227" stroke-width="1.5"/>
+    <path d="M112 630 L112 380 C112 340 120 320 130 305 C140 320 148 340 148 380 L148 630" stroke="#C9A227" stroke-width="1"/>
+    <path d="M130 210 L130 40" stroke="#C9A227" stroke-width="1.5"/>
+    <path d="M115 90 L145 90 M110 130 L150 130 M108 170 L152 170" stroke="#C9A227" stroke-width="0.75"/>
+    <path d="M80 470 L100 470 M160 470 L180 470 M75 540 L100 540 M160 540 L185 540" stroke="#C9A227" stroke-width="0.75"/>
+    <circle cx="130" cy="60" r="6" stroke="#C9A227" stroke-width="1"/>
+  </svg>
+
+  <div class="max-w-7xl mx-auto px-5 md:px-8 relative grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-start">
+    <div class="max-w-xl">
+      <p class="uppercase tracking-[0.2em] text-xs text-gold-500 font-semibold mb-5">Taxicentrale · Antwerpen &amp; omstreken</p>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-ivory-50">
+        De meter start<br class="hidden sm:block"> zodra u <span class="text-gold-400">weet</span> wat het kost.
+      </h1>
+      <p class="mt-6 text-lg text-silver-300 leading-relaxed">
+        Bereken uw rit vooraf tot op de cent, boek in een paar tikken en betaal
+        zoals het u past — online of cash aan de chauffeur. Vaste prijzen naar
+        Brussels Airport, Charleroi, Schiphol en Brussel-Zuid.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#bereken" class="inline-flex items-center gap-2 rounded-full bg-gold-500 hover:bg-gold-300 text-navy-950 font-semibold px-6 py-3 transition-colors">
+          Bereken mijn rit
+        </a>
+        <a id="hero-whatsapp" href="#" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-full border border-silver-400/30 hover:border-gold-500/60 text-ivory-50 px-6 py-3 transition-colors">
+          Boek via WhatsApp
+        </a>
+      </div>
+      <div class="mt-10 flex items-center gap-8 text-sm text-silver-400">
+        <div><span class="block font-meter text-xl text-gold-400">2</span>eigen wagens</div>
+        <div><span class="block font-meter text-xl text-gold-400">24/7</span>op aanvraag</div>
+        <div><span class="block font-meter text-xl text-gold-400">4</span>vaste luchthaventarieven</div>
+      </div>
+    </div>
+
+    <!-- ===================== TAXIMETER RITCALCULATOR ===================== -->
+    <div id="bereken" class="scroll-mt-24 relative bg-navy-900 border border-gold-500/20 rounded-2xl p-6 md:p-7 shadow-[0_0_0_1px_rgba(201,162,39,0.05),0_20px_60px_-15px_rgba(0,0,0,0.6)]">
+      <p class="text-xs uppercase tracking-[0.18em] text-gold-500 font-semibold mb-4">Ritcalculator</p>
+
+      <form id="fare-form" class="space-y-4">
+        <div>
+          <label class="block text-xs text-silver-400 mb-1.5" for="pickup">Ophaaladres</label>
+          <input id="pickup" name="pickup" type="text" autocomplete="off" required
+            placeholder="Bv. Grote Markt, Antwerpen"
+            class="w-full rounded-lg bg-navy-800 border border-silver-400/15 focus:border-gold-500 outline-none px-3.5 py-2.5 text-sm placeholder:text-silver-400/60">
+        </div>
+        <div>
+          <label class="block text-xs text-silver-400 mb-1.5" for="destination">Bestemming</label>
+          <input id="destination" name="destination" type="text" autocomplete="off" required
+            placeholder="Bv. Brussels Airport, Zaventem"
+            class="w-full rounded-lg bg-navy-800 border border-silver-400/15 focus:border-gold-500 outline-none px-3.5 py-2.5 text-sm placeholder:text-silver-400/60">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-silver-400 mb-1.5" for="datum">Datum</label>
+            <input id="datum" name="datum" type="date"
+              class="w-full rounded-lg bg-navy-800 border border-silver-400/15 focus:border-gold-500 outline-none px-3.5 py-2.5 text-sm">
+          </div>
+          <div class="flex items-end pb-2.5">
+            <label class="inline-flex items-center gap-2 text-sm text-silver-300">
+              <input id="retour" type="checkbox" class="rounded bg-navy-800 border-silver-400/30 text-gold-500 focus:ring-gold-500/40">
+              Retourrit
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <span class="block text-xs text-silver-400 mb-1.5">Voertuig</span>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="vehicle-option cursor-pointer rounded-lg border border-silver-400/15 px-3.5 py-3 text-sm hover:border-gold-500/50">
+              <input type="radio" name="voertuig" value="comfort" class="peer sr-only" checked>
+              <span class="peer-checked:text-gold-400 block font-medium text-ivory-50">Comfort</span>
+              <span class="text-silver-400 text-xs">Toyota Corolla Touring</span>
+            </label>
+            <label class="vehicle-option cursor-pointer rounded-lg border border-silver-400/15 px-3.5 py-3 text-sm hover:border-gold-500/50">
+              <input type="radio" name="voertuig" value="luxe" class="peer sr-only">
+              <span class="peer-checked:text-gold-400 block font-medium text-ivory-50">Executive</span>
+              <span class="text-silver-400 text-xs">BMW 530e xDrive</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" id="calc-btn"
+          class="w-full rounded-lg bg-gold-500 hover:bg-gold-300 text-navy-950 font-semibold py-3 text-sm transition-colors">
+          Bereken prijs
+        </button>
+      </form>
+
+      <!-- Taximeter-display: het signatuurelement van de site -->
+      <div id="meter" class="hidden mt-5 rounded-xl bg-navy-950 border border-gold-500/30 p-4">
+        <div class="flex items-center justify-between text-[11px] uppercase tracking-widest text-silver-400 mb-2">
+          <span id="meter-label">Kilometertarief</span>
+          <span id="meter-sub" class="text-gold-500"></span>
+        </div>
+        <div class="flex items-end justify-between">
+          <span class="font-meter text-4xl text-gold-400" id="meter-price">€ 0.00</span>
+          <span class="font-meter text-xs text-silver-400" id="meter-km"></span>
+        </div>
+        <p id="meter-error" class="hidden text-xs text-red-400 mt-2"></p>
+        <button id="open-booking" type="button"
+          class="hidden mt-4 w-full rounded-lg border border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-navy-950 font-semibold py-2.5 text-sm transition-colors">
+          Deze rit boeken
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= VOERTUIGEN ============================= -->
+<section id="voertuigen" class="scroll-mt-20 border-t border-gold-500/10 py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <p class="uppercase tracking-[0.2em] text-xs text-gold-500 font-semibold mb-3">Onze wagens</p>
+    <h2 class="font-display text-3xl md:text-4xl mb-12 max-w-xl">Twee klassen, altijd dezelfde stiptheid.</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <article class="rounded-2xl bg-navy-900 border border-silver-400/10 overflow-hidden">
+        <img src="/img/toyota-corolla.jpg" alt="Toyota Corolla Touring — Comfort klasse" class="w-full h-48 object-cover">
+        <div class="p-8">
+        <p class="text-xs uppercase tracking-widest text-silver-400 mb-1">Comfort</p>
+        <h3 class="font-display text-2xl mb-4">Toyota Corolla Touring</h3>
+        <p class="text-silver-300 text-sm leading-relaxed mb-6">
+          Ruime, zuinige hybride stationwagen — ideaal voor dagelijkse ritten,
+          luchthaventransfers en zakelijke verplaatsingen in en rond Antwerpen.
+        </p>
+        <dl class="grid grid-cols-3 gap-4 text-sm border-t border-silver-400/10 pt-5">
+          <div><dt class="text-silver-400 text-xs mb-1">Starttarief</dt><dd class="font-meter text-gold-400">€ 6,95</dd></div>
+          <div><dt class="text-silver-400 text-xs mb-1">Per km</dt><dd class="font-meter text-gold-400">€ 2,95</dd></div>
+          <div><dt class="text-silver-400 text-xs mb-1">Wachttijd/u</dt><dd class="font-meter text-gold-400">€ 50</dd></div>
+        </dl>
+        </div>
+      </article>
+
+      <article class="rounded-2xl bg-navy-900 border border-gold-500/25 relative overflow-hidden">
+        <span class="absolute top-4 right-4 z-10 text-[10px] uppercase tracking-widest text-gold-500 bg-navy-950/70 backdrop-blur border border-gold-500/40 rounded-full px-2.5 py-1">Executive</span>
+        <img src="/img/bmw-530e.jpg" alt="BMW 530e xDrive — Luxe/Executive klasse" class="w-full h-48 object-cover">
+        <div class="p-8">
+        <p class="text-xs uppercase tracking-widest text-silver-400 mb-1">Luxe</p>
+        <h3 class="font-display text-2xl mb-4">BMW 530e xDrive</h3>
+        <p class="text-silver-300 text-sm leading-relaxed mb-6">
+          Voor wie representatie belangrijk vindt: zakenreizen, events en
+          luchthaventransfers in alle rust en met net dat tikkeltje meer.
+        </p>
+        <dl class="grid grid-cols-3 gap-4 text-sm border-t border-silver-400/10 pt-5">
+          <div><dt class="text-silver-400 text-xs mb-1">Starttarief</dt><dd class="font-meter text-gold-400">€ 10,00</dd></div>
+          <div><dt class="text-silver-400 text-xs mb-1">Per km</dt><dd class="font-meter text-gold-400">€ 3,20</dd></div>
+          <div><dt class="text-silver-400 text-xs mb-1">Wachttijd/u</dt><dd class="font-meter text-gold-400">€ 60</dd></div>
+        </dl>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= VASTE TARIEVEN ============================= -->
+<section id="tarieven" class="scroll-mt-20 border-t border-gold-500/10 py-20 md:py-28 bg-navy-900/40">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <p class="uppercase tracking-[0.2em] text-xs text-gold-500 font-semibold mb-3">Geen verrassingen</p>
+    <h2 class="font-display text-3xl md:text-4xl mb-12 max-w-xl">Vaste tarieven naar luchthavens &amp; station.</h2>
+
+    <div class="overflow-x-auto rounded-2xl border border-silver-400/10">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy-900 text-left text-silver-400 uppercase text-xs tracking-wider">
+            <th class="px-6 py-4 font-medium">Traject</th>
+            <th class="px-6 py-4 font-medium">Comfort (Toyota)</th>
+            <th class="px-6 py-4 font-medium">Executive (BMW)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-silver-400/10">
+          <tr>
+            <td class="px-6 py-4">
+              Antwerpen ⇄ Brussels Airport (Zaventem)
+              <span class="block text-xs text-silver-400 mt-0.5">weekdagen / weekend</span>
+            </td>
+            <td class="px-6 py-4 font-meter text-gold-400">€ 80 / € 90</td>
+            <td class="px-6 py-4 font-meter text-gold-400">€ 100 / € 110</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">Antwerpen ⇄ Charleroi Airport</td>
+            <td class="px-6 py-4 font-meter text-gold-400">€ 160</td>
+            <td class="px-6 py-4 font-meter text-gold-400">€ 180</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">Antwerpen ⇄ Schiphol Airport</td>
+            <td class="px-6 py-4 font-meter text-gold-400">€ 250</td>
+            <td class="px-6 py-4 font-meter text-gold-400">€ 270</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">Antwerpen ⇄ Station Brussel-Zuid</td>
+            <td class="px-6 py-4 font-meter text-gold-400">€ 100</td>
+            <td class="px-6 py-4 font-meter text-gold-400">€ 120</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-silver-400 mt-4">Weekendtarief Zaventem geldt op zaterdag en zondag. Bij een retourrit wordt het traject dubbel aangerekend.</p>
+  </div>
+</section>
+
+<!-- ============================= HOE HET WERKT ============================= -->
+<section class="border-t border-gold-500/10 py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <h2 class="font-display text-3xl md:text-4xl mb-12 max-w-xl">Boeken in drie stappen.</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <p class="font-meter text-gold-500 text-sm mb-3">01</p>
+        <h3 class="font-display text-xl mb-2">Bereken</h3>
+        <p class="text-silver-300 text-sm leading-relaxed">Vul ophaaladres en bestemming in — de meter toont meteen de exacte prijs.</p>
+      </div>
+      <div>
+        <p class="font-meter text-gold-500 text-sm mb-3">02</p>
+        <h3 class="font-display text-xl mb-2">Kies uw betaalmethode</h3>
+        <p class="text-silver-300 text-sm leading-relaxed">Betaal online via Bancontact, Wero, kaart of Apple Pay — of gewoon cash aan de chauffeur.</p>
+      </div>
+      <div>
+        <p class="font-meter text-gold-500 text-sm mb-3">03</p>
+        <h3 class="font-display text-xl mb-2">Stap in</h3>
+        <p class="text-silver-300 text-sm leading-relaxed">U ontvangt een bevestiging en uw chauffeur staat op tijd klaar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= REVIEWS ============================= -->
+<section class="border-t border-gold-500/10 py-20 md:py-28 bg-navy-900/40">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <h2 class="font-display text-3xl md:text-4xl mb-12 max-w-xl">Wat klanten zeggen.</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <blockquote class="rounded-2xl bg-navy-900 border border-silver-400/10 p-6 text-sm text-silver-300 leading-relaxed">
+        "Prijs vooraf gekend, geen discussie achteraf. De BMW naar Zaventem was een aangename start van de zakenreis."
+        <footer class="mt-4 text-xs text-silver-400">— Sofie, Antwerpen</footer>
+      </blockquote>
+      <blockquote class="rounded-2xl bg-navy-900 border border-silver-400/10 p-6 text-sm text-silver-300 leading-relaxed">
+        "Boeken via WhatsApp kon niet makkelijker. Chauffeur stond keurig op tijd voor onze vlucht naar Schiphol."
+        <footer class="mt-4 text-xs text-silver-400">— Tom, Berchem</footer>
+      </blockquote>
+      <blockquote class="rounded-2xl bg-navy-900 border border-silver-400/10 p-6 text-sm text-silver-300 leading-relaxed">
+        "Vaste prijs naar Brussel-Zuid voor de Eurostar, netjes op voorhand betaald. Geen stress met de trein."
+        <footer class="mt-4 text-xs text-silver-400">— Amina, Deurne</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FAQ ============================= -->
+<section id="faq" class="scroll-mt-20 border-t border-gold-500/10 py-20 md:py-28">
+  <div class="max-w-4xl mx-auto px-5 md:px-8">
+    <h2 class="font-display text-3xl md:text-4xl mb-12">Veelgestelde vragen over onze tarieven.</h2>
+    <div id="faq-list" class="divide-y divide-silver-400/10 border-t border-b border-silver-400/10">
+      <div class="faq-item py-5">
+        <button class="faq-toggle w-full flex items-center justify-between text-left">
+          <span class="font-medium">Hoe wordt de prijs van mijn rit berekend?</span>
+          <span class="faq-icon text-gold-500 text-xl leading-none">+</span>
+        </button>
+        <div class="faq-answer hidden mt-3 text-sm text-silver-300 leading-relaxed">
+          Voor de meeste ritten geldt een starttarief plus een prijs per kilometer, afhankelijk van de gekozen klasse.
+          Voor Brussels Airport (Zaventem), Charleroi Airport, Schiphol en Station Brussel-Zuid gelden vaste prijzen,
+          die automatisch worden toegepast zodra u die bestemming invult.
+        </div>
+      </div>
+      <div class="faq-item py-5">
+        <button class="faq-toggle w-full flex items-center justify-between text-left">
+          <span class="font-medium">Waarom is de rit naar Zaventem duurder in het weekend?</span>
+          <span class="faq-icon text-gold-500 text-xl leading-none">+</span>
+        </button>
+        <div class="faq-answer hidden mt-3 text-sm text-silver-300 leading-relaxed">
+          Op zaterdag en zondag geldt voor het traject Antwerpen–Zaventem een weekendtarief. Dit wordt automatisch
+          toegepast op basis van de gekozen datum in de calculator.
+        </div>
+      </div>
+      <div class="faq-item py-5">
+        <button class="faq-toggle w-full flex items-center justify-between text-left">
+          <span class="font-medium">Hoe werkt een retourrit?</span>
+          <span class="faq-icon text-gold-500 text-xl leading-none">+</span>
+        </button>
+        <div class="faq-answer hidden mt-3 text-sm text-silver-300 leading-relaxed">
+          Bij een retourrit wordt het volledige traject (heen én terug) aangerekend, ook als de terugrit op een later
+          moment plaatsvindt. Vink dit gewoon aan in de calculator voor een directe totaalprijs.
+        </div>
+      </div>
+      <div class="faq-item py-5">
+        <button class="faq-toggle w-full flex items-center justify-between text-left">
+          <span class="font-medium">Welke betaalmethodes accepteren jullie?</span>
+          <span class="faq-icon text-gold-500 text-xl leading-none">+</span>
+        </button>
+        <div class="faq-answer hidden mt-3 text-sm text-silver-300 leading-relaxed">
+          U kiest zelf: online betalen via Bancontact, Wero, kredietkaart of Apple Pay bij het boeken, of gewoon
+          cash aan de chauffeur bij het instappen of na afloop van de rit.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= BOOKING MODAL ============================= -->
+<div id="booking-modal" class="hidden fixed inset-0 z-[60] bg-navy-950/80 backdrop-blur-sm px-4 py-8 overflow-y-auto">
+  <div class="max-w-md mx-auto bg-navy-900 border border-gold-500/25 rounded-2xl p-6 md:p-7 mt-10">
+    <div class="flex items-center justify-between mb-5">
+      <h3 class="font-display text-xl">Boeking afronden</h3>
+      <button id="close-booking" class="text-silver-400 hover:text-ivory-50 text-2xl leading-none">&times;</button>
+    </div>
+
+    <div id="booking-summary" class="text-sm text-silver-300 bg-navy-950 rounded-lg p-4 mb-5 space-y-1"></div>
+
+    <form id="booking-form" class="space-y-4">
+      <div>
+        <label class="block text-xs text-silver-400 mb-1.5" for="klantNaam">Naam</label>
+        <input id="klantNaam" required class="w-full rounded-lg bg-navy-800 border border-silver-400/15 focus:border-gold-500 outline-none px-3.5 py-2.5 text-sm">
+      </div>
+      <div>
+        <label class="block text-xs text-silver-400 mb-1.5" for="klantTelefoon">GSM-nummer</label>
+        <input id="klantTelefoon" required type="tel" class="w-full rounded-lg bg-navy-800 border border-silver-400/15 focus:border-gold-500 outline-none px-3.5 py-2.5 text-sm">
+      </div>
+      <div>
+        <span class="block text-xs text-silver-400 mb-1.5">Betaalmethode</span>
+        <div class="grid grid-cols-2 gap-3">
+          <label class="cursor-pointer rounded-lg border border-silver-400/15 px-3.5 py-3 text-sm hover:border-gold-500/50">
+            <input type="radio" name="betaalmethode" value="online" class="peer sr-only" checked>
+            <span class="peer-checked:text-gold-400 block font-medium">Online betalen</span>
+            <span class="text-silver-400 text-xs">Bancontact, Wero, kaart, Apple Pay</span>
+          </label>
+          <label class="cursor-pointer rounded-lg border border-silver-400/15 px-3.5 py-3 text-sm hover:border-gold-500/50">
+            <input type="radio" name="betaalmethode" value="cash" class="peer sr-only">
+            <span class="peer-checked:text-gold-400 block font-medium">Cash</span>
+            <span class="text-silver-400 text-xs">Aan de chauffeur</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" id="submit-booking"
+        class="w-full rounded-lg bg-gold-500 hover:bg-gold-300 text-navy-950 font-semibold py-3 text-sm transition-colors">
+        Bevestig boeking
+      </button>
+      <p id="booking-error" class="hidden text-xs text-red-400"></p>
+    </form>
+  </div>
+</div>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="border-t border-gold-500/10 py-12">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div>
+      <span class="font-display text-lg">Taxi<span class="text-gold-500">Antwerpen</span></span>
+      <p class="text-silver-400 text-sm mt-2">taxiboekenantwerpen.be · Antwerpen &amp; omstreken</p>
+    </div>
+    <div class="text-sm text-silver-400 flex flex-col gap-1">
+      <a href="tel:+32488908897" class="hover:text-gold-300">+32 488 90 88 97</a>
+      <a href="mailto:info@taxiboekenantwerpen.be" class="hover:text-gold-300">info@taxiboekenantwerpen.be</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Vaste WhatsApp-knop (mobiel-vriendelijk) -->
+<a id="floating-whatsapp" href="#" target="_blank" rel="noopener"
+   class="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-gold-500 hover:bg-gold-300 text-navy-950 font-semibold px-5 py-3 shadow-xl shadow-black/30 transition-colors">
+  WhatsApp
+</a>
+
+<script src="/js/fareRules.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=__GOOGLE_MAPS_API_KEY__&libraries=places&language=nl&region=BE" async defer></script>
+<script src="/js/app.js"></script>
 </body>
 </html>
