@@ -1,0 +1,30 @@
+AANGEPASTE VERSIE — 29 oktober 2026
+
+Installeren: npm ci
+Starten: npm start
+Open: http://localhost:3000/
+Node.js 18 of hoger vereist.
+
+Wijzigingen:
+- Correct telefoon- en WhatsApp-nummer: +32 488 90 88 97.
+- Drie directe WhatsApp-links, ook bruikbaar zonder JavaScript.
+- Calculator gebruikt de backend voor afstand en prijs.
+- Google-sleutelverwerking, HTML-routes en oude /public/js-routes hersteld.
+- Google-adresvelden gecorrigeerd; timeouts en invoercontrole toegevoegd.
+- Weekend bepaald in Belgische tijdzone.
+- Oude ritgegevens ongeldig bij gewijzigde invoer.
+- Duidelijke weergave van enkele rit of heen en terug en kilometertarief.
+- WhatsApp vermeldt enkele rit of heen en terug.
+- Ophaaladres en bestemming hebben elk een eigen Google Maps-link.
+- Nieuwe autofoto's en bestaande vormgeving behouden.
+
+Configuratie:
+Deze ZIP bevat de .env met de sleutels uit de laatst aangeleverde ZIP.
+Bewaar en deel dit bestand vertrouwelijk. Publiceer alleen public/ als statische bestanden;
+de applicatie heeft daarnaast de draaiende Node-backend nodig.
+Optioneel: gebruik afzonderlijke GOOGLE_MAPS_SERVER_API_KEY en
+GOOGLE_MAPS_BROWSER_API_KEY. De bestaande GOOGLE_MAPS_API_KEY blijft als fallback werken.
+
+Niet meegeleverd: node_modules, lokale testbestanden en eventuele boekingsgegevens.
+De bestaande Mollie-betaalflow, opslag en overige auditpunten zijn niet volledig herzien.
+Geen echte betaling uitgevoerd. Niets live gepubliceerd.
